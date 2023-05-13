@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 
@@ -6,7 +5,6 @@ function App() {
   // debugger
   const [messageStack, setMessageStack] = useState([]);
   const [outgoingMessage, setOutgoingMessage] = useState("");
-  // const inputField = useRef();
 
   const sendMessageUrl =
     "https://api.green-api.com/waInstance1101819635/sendMessage/336bca218a3f4f728a16912bbeb3f4786de9401d34a14089ad";
@@ -14,7 +12,6 @@ function App() {
     "https://api.green-api.com/waInstance1101819635/receiveNotification/336bca218a3f4f728a16912bbeb3f4786de9401d34a14089ad";
   const deleteNotificationUrl =
     "https://api.green-api.com/waInstance1101819635/deleteNotification/336bca218a3f4f728a16912bbeb3f4786de9401d34a14089ad";
-  // const url = "example.com"
 
   const deleteReceivedMessage = (receiptId) => {
     fetch(deleteNotificationUrl + "/" + receiptId, {
@@ -24,9 +21,7 @@ function App() {
 
   const getMessage = async function () {
     let response = await fetch(receiveNotificationUrl, {
-      method: "GET",
-      // headers: headers,
-      // body: payload
+      method: "GET",      
     });
     response = await response.json();
     console.log(response);
@@ -55,7 +50,6 @@ function App() {
 
   const sendMessage = async() => {
     
-    // debugger;
     const headers = { "Content-Type": "application/json" };
     const payload = JSON.stringify({
       chatId: "79956073963@c.us",
