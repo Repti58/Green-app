@@ -1,10 +1,10 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function App() {
-  // debugger
   const [messageStack, setMessageStack] = useState([]);
   const [outgoingMessage, setOutgoingMessage] = useState("");
+  const uniqeId = useRef([]);
 
   const sendMessageUrl =
     "https://api.green-api.com/waInstance1101819635/sendMessage/336bca218a3f4f728a16912bbeb3f4786de9401d34a14089ad";
@@ -13,58 +13,82 @@ function App() {
   const deleteNotificationUrl =
     "https://api.green-api.com/waInstance1101819635/deleteNotification/336bca218a3f4f728a16912bbeb3f4786de9401d34a14089ad";
 
-  const deleteReceivedMessage = (receiptId) => {
-    fetch(deleteNotificationUrl + "/" + receiptId, {
-      method: "DELETE",
-    });
-  };
-
-  const getMessage = async function () {
-    let response = await fetch(receiveNotificationUrl, {
-      method: "GET",      
-    });
-    response = await response.json();
-    console.log(response);
-    if (response) {
-      const receiptId = response.receiptId;
-      let messageType
-      if (response.body.typeWebhook == "incomingMessageReceived") {
-        messageType = "incoming-message"
-      } else {
-        messageType = "outgoing-message"
+    const deleteReceivedMessage = async (receiptId) => {
+      try {
+        await fetch(deleteNotificationUrl + "/" + receiptId, {
+          method: "DELETE",
+        });
+      } catch (error) {
+        console.error(error);
       }
-      
-      let messageText;
-      if (
-        response.body.typeWebhook == "outgoingAPIMessageReceived"        
-      ) {
-        messageText = response.body.messageData.extendedTextMessageData.text;
-      } else {
-        messageText = response.body.messageData.textMessageData.textMessage;
-      }
-      console.log(messageText);
-      setMessageStack([...messageStack, { receiptId, messageText, messageType }]);
-      deleteReceivedMessage(receiptId);
-    }
-  };
-
-  const sendMessage = async() => {
+    };
     
+
+    const getMessage = async function () {
+      try {
+        let response = await fetch(receiveNotificationUrl, {
+          method: "GET",
+        });
+        response = await response.json();
+        if (response) {
+          const receiptId = response.receiptId;
+    
+          let messageType;
+          if (response.body.typeWebhook === "incomingMessageReceived") {
+            messageType = "incoming-message";
+          } else {
+            messageType = "outgoing-message";
+          }
+    
+          let messageText;
+          if (response.body.typeWebhook === "outgoingAPIMessageReceived") {
+            messageText = response.body.messageData.extendedTextMessageData.text;
+          } else {
+            messageText = response.body.messageData.textMessageData.textMessage;
+          }
+    
+          if (!uniqeId.current.includes(receiptId)) {
+            setMessageStack((prevState) => [
+              ...prevState,
+              { receiptId, messageText, messageType },
+            ]);
+            uniqeId.current.push(receiptId);
+          }
+    
+          deleteReceivedMessage(receiptId);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      debugger;
+      getMessage();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const sendMessage = async () => {
     const headers = { "Content-Type": "application/json" };
     const payload = JSON.stringify({
       chatId: "79956073963@c.us",
       message: outgoingMessage,
     });
-    await fetch(sendMessageUrl, {
-      method: "POST",
-      headers: headers,
-      body: payload,
-    });
-    setOutgoingMessage("")
-    getMessage()
+    try {
+      await fetch(sendMessageUrl, {
+        method: "POST",
+        headers: headers,
+        body: payload,
+      });
+      setOutgoingMessage("");
+    } catch (error) {
+      console.error(error);
+    }
   };
-  console.log(messageStack);
-  console.log(outgoingMessage);
 
   return (
     <div className="App">
@@ -76,7 +100,7 @@ function App() {
               <div
                 key={message.receiptId}
                 className={
-                  message.messageType == "incoming-message"
+                  message.messageType === "incoming-message"
                     ? "incoming-msg"
                     : "outgoing-msg"
                 }
@@ -86,10 +110,8 @@ function App() {
             );
           })}
         </div>
-        <button className="send-msg-btn" onClick={getMessage}>
-          получить
-        </button>
-        <input value={outgoingMessage}
+        <input
+          value={outgoingMessage}
           className="outgoing-msg"
           onChange={(event) => setOutgoingMessage(event.target.value)}
         ></input>
