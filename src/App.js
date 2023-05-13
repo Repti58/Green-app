@@ -1,10 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 function App() {
   // debugger
-  const [MessageStack, setMessageStack] = useState([]);
+  const [messageStack, setMessageStack] = useState([]);
   const [outgoingMessage, setOutgoingMessage] = useState("");
   // const inputField = useRef();
 
@@ -48,7 +48,7 @@ function App() {
         messageText = response.body.messageData.textMessageData.textMessage;
       }
       console.log(messageText);
-      setMessageStack([...MessageStack, { receiptId, messageText, messageType }]);
+      setMessageStack([...messageStack, { receiptId, messageText, messageType }]);
       deleteReceivedMessage(receiptId);
     }
   };
@@ -69,7 +69,7 @@ function App() {
     setOutgoingMessage("")
     getMessage()
   };
-  console.log(MessageStack);
+  console.log(messageStack);
   console.log(outgoingMessage);
 
   return (
@@ -77,7 +77,7 @@ function App() {
       <header></header>
       <div className="App-container">
         <div>
-          {MessageStack.map((message) => {
+          {messageStack.map((message) => {
             return (
               <div
                 key={message.receiptId}
