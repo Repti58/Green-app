@@ -1,0 +1,48 @@
+.Dialog-container {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  /* font-size: calc(10px + 2vmin); */
+  color: white;
+  /* box-sizing: border-box; */
+  border: solid 2px red;
+  padding: 10px;
+  
+  
+}
+
+.incoming-msg {
+    background-color: #6c5e5e;
+    border-radius: 5px;
+    padding: 3px;
+    color: #ed0d0d;
+    height: 20px;
+    min-width: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .outgoing-msg {
+    background-color: #aaacb1;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+  
+    margin-bottom: 10px;
+  }
+  
+  .send-msg-btn {
+    background-color: #5a5a61;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    color: #cecece;
+    margin-bottom: 10px;
+  }
+
+  .alert-warning {
+    float: right;
+  }
