@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Authentication(props) {
-  const [authStatus, setAuthStatus] = useState(false);
+  
   const [idValue, setIdValue] = useState("");
   const [tokenValue, setTokenValue] = useState("");
 
@@ -14,7 +14,7 @@ function Authentication(props) {
         idInstance: idValue,
         apiTokenInstance: tokenValue,
       });
-      setAuthStatus(true);
+      props.setAuthStatus(true);
       setIdValue("");
       setTokenValue("");
     }
@@ -23,13 +23,13 @@ function Authentication(props) {
   console.log("authData", props.authData);
 
   const exitButtonHandler = () => {
-    setAuthStatus(false);
+    props.setAuthStatus(false);
     props.setAuthData({});
   };
 
   return (
     <div>
-      {!authStatus ? (
+      {!props.authStatus ? (
         <div>
           <div>Введите ваши данные из Green-Api</div>
           <div>IdInstance</div>

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./Dialog.css";
 
-function Dialog({ messageStack, setMessageStack, chatNumber, authData }) {
+function Dialog({ messageStack, setMessageStack, chatNumber, authData, authStatus }) {
   const [outgoingMessage, setOutgoingMessage] = useState("");
   const uniqueId = useRef([]);
   const uniqueKeyOutgoingMessage = useRef(1);
@@ -113,8 +113,9 @@ function Dialog({ messageStack, setMessageStack, chatNumber, authData }) {
 
   return (
     <div className="Dialog-container">
+      {authStatus && chatNumber ? (
       <div>
-      
+      <div>      
         {messageStack.map((message) => {
           return (
             <div
@@ -157,6 +158,8 @@ function Dialog({ messageStack, setMessageStack, chatNumber, authData }) {
       {/* <button className="send-msg-btn" onClick={sendMessage}>
         Отправить
       </button> */}
+      </div>
+      ) : null}
     </div>
   );
 }

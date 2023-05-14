@@ -11,6 +11,7 @@ function App() {
   const [chatNumber, setChatNumber] = useState("")
   const [messageStack, setMessageStack] = useState([]);
   const [authData, setAuthData] = useState({})
+  const [authStatus, setAuthStatus] = useState(false);
   console.log("authData in APP", authData);
   console.log("chatNumber", chatNumber);
 
@@ -23,6 +24,8 @@ function App() {
       <div className="row">
         <div className="col-4">
           <Authentication
+          setAuthStatus={setAuthStatus}
+          authStatus={authStatus}
           authData={authData}
           setAuthData={setAuthData}
           ></Authentication>
@@ -34,6 +37,7 @@ function App() {
         
         <div className="col">
           <Dialog
+          authStatus={authStatus}
           authData={authData}
           chatNumber={chatNumber}
           messageStack={messageStack}
