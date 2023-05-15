@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/GreenApp/static/css/main.52f8f375.css",
+    "main.js": "/GreenApp/static/js/main.ba678d78.js",
+    "static/js/787.66b25e22.chunk.js": "/GreenApp/static/js/787.66b25e22.chunk.js",
+    "index.html": "/GreenApp/index.html",
+    "main.52f8f375.css.map": "/GreenApp/static/css/main.52f8f375.css.map",
+    "main.ba678d78.js.map": "/GreenApp/static/js/main.ba678d78.js.map",
+    "787.66b25e22.chunk.js.map": "/GreenApp/static/js/787.66b25e22.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52f8f375.css",
+    "static/js/main.ba678d78.js"
+  ]
+}
