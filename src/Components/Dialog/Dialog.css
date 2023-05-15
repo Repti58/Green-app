@@ -44,9 +44,9 @@
   margin-bottom: 0!important;
 }
 
-.row>* {
+/* .row>* {
   padding-right: 0;
-}
+} */
   
 
 
@@ -74,7 +74,7 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    background-color: #595a5d;
+    background-color: #3d4045;
     border-radius: 5px;
   }
 
