@@ -2,7 +2,7 @@ import "./App.css";
 // import { useState, useEffect, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import Authentication from "./Components/Authentication";
-import Dialog from "./Components/Dialog";
+import Dialog from "./Components/Dialog/Dialog";
 import Chatlist from "./Components/ChatList";
 import { useState } from "react";
 

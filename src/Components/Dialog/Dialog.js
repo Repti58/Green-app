@@ -1,10 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import "./Dialog.css";
+import ChatDialog from "./ChatDialog.js"
 
-function Dialog({ messageStack, setMessageStack, chatNumber, authData, authStatus }) {
+function Dialog({
+  messageStack,
+  setMessageStack,
+  chatNumber,
+  authData,
+  authStatus,
+}) {
   const [outgoingMessage, setOutgoingMessage] = useState("");
   const uniqueId = useRef([]);
   const uniqueKeyOutgoingMessage = useRef(1);
+  
   console.log("authData in Dialog", authData);
   const { idInstance, apiTokenInstance } = authData;
   console.log(idInstance, apiTokenInstance);
@@ -89,12 +97,12 @@ function Dialog({ messageStack, setMessageStack, chatNumber, authData, authStatu
       console.log("payload", payload);
 
       try {
+        setOutgoingMessage("");
         await fetch(sendMessageUrl, {
           method: "POST",
           headers: headers,
           body: payload,
         });
-        setOutgoingMessage("");
       } catch (error) {
         console.error(error);
       }
@@ -110,55 +118,43 @@ function Dialog({ messageStack, setMessageStack, chatNumber, authData, authStatu
   };
 
   console.log("messageStack", messageStack);
+ 
+  
+
 
   return (
     <div className="Dialog-container">
       {authStatus && chatNumber ? (
-      <div>
-      <div>      
-        {messageStack.map((message) => {
-          return (
-            <div
-              key={message.receiptId}
-              className={
-                message.messageType === "incoming-message"
-                  ? "alert alert-warning"
-                  : "alert alert-success"
-              }
-            >
-              {message.messageText}
-            </div>
-          );
-        })}
-      </div>
-      {/* <input
-        value={outgoingMessage}
-        className="outgoing-msg"
-        onChange={(event) => setOutgoingMessage(event.target.value)}
-        onKeyDown={inputMessageHandler}
-      ></input> */}
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Ваше сообщение..."
-          value={outgoingMessage}
-          onChange={(event) => setOutgoingMessage(event.target.value)}
-          onKeyDown={inputMessageHandler}
+        <div>
+          
 
-        />
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          onClick={sendMessage}
-        >
-          But
-        </button>
-      </div>
-      {/* <button className="send-msg-btn" onClick={sendMessage}>
-        Отправить
-      </button> */}
-      </div>
+
+          <ChatDialog
+          messageStack={messageStack}
+          ></ChatDialog>
+        <div className="input-wrapper">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Ваше сообщение..."
+              value={outgoingMessage}
+              onChange={(event) => setOutgoingMessage(event.target.value)}
+              onKeyDown={inputMessageHandler}
+            />
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              onClick={sendMessage}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+  <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+</svg>
+            </button>
+          </div>
+          </div>
+         
+        </div>
       ) : null}
     </div>
   );

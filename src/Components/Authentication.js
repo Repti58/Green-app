@@ -21,11 +21,17 @@ function Authentication(props) {
   };
 
   console.log("authData", props.authData);
+// Временная функция!!!
+const exitButtonHandler = () => {
+  props.setAuthStatus(false);
+  props.setAuthData({});
+};
+// Временная функция!!!
 
-  const exitButtonHandler = () => {
-    props.setAuthStatus(false);
-    props.setAuthData({});
-  };
+  const tempButtonHandler = () => {
+    setIdValue("1101820240")
+    setTokenValue("6c0edc4dd2c1478c94564418912b7f13c64b506d27824caabe")
+  }
 
   return (
     <div>
@@ -35,13 +41,20 @@ function Authentication(props) {
           <div>IdInstance</div>
           <input
             name="IdInstance"
+            value={idValue}
             onChange={(e) => setIdValue(e.target.value)}
           ></input>
           <div>ApiTokenInstance</div>
           <input
+          value={tokenValue}
             name="ApiTokenInstance"
             onChange={(e) => setTokenValue(e.target.value)}
           ></input>
+
+          {/* !!!!Временная кнопка!!!! */}
+          <button name="temp" onClick={tempButtonHandler}>TMP</button>
+          {/* !!!!Временная кнопка!!!! */}
+
           <button onClick={submitAuthHandler}>Войти</button>
         </div>
       ) : (

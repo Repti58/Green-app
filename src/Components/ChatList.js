@@ -31,6 +31,18 @@ function Chatlist(props) {
     }
   };
   console.log("chats", chat);
+
+
+//   Временные функции!!!
+const tempButtonHandler1 = () => {
+    setInputValue("79110073963")
+}
+const tempButtonHandler2 = () => {
+    setInputValue("79956073963")
+}
+//   Временные функции!!!
+
+
   return (
     <div className="chats">
       <div>Добавить чат</div>
@@ -45,6 +57,11 @@ function Chatlist(props) {
         onKeyUp={inputNumberHandler}
       ></input>
       <button onClick={activateChat}>O</button>
+
+      {/* Временные кнопки */}
+<button name="79110073963" onClick={tempButtonHandler1}>79110073963</button>
+<button name="79956073963" onClick={tempButtonHandler2}>79956073963</button>
+      {/* Временные кнопки */}
 
       <div>{chat}</div>
     </div>
