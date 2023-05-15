@@ -1,17 +1,13 @@
 .inputNumber_alert {
-    border: solid 1px red;
+  border: solid 1px red;
 }
 
 .chats {
-    
-    background-color: #191c20;
-    
-    border-radius: 10px;
-    
-    padding: 2%;
+  background-color: #191c20;
+  border-radius: 10px;
+  padding: 2%;
 }
 
 .active-chat {
-    margin-top: 30px;
-    /* color: rgb(17, 98, 219); */
+  margin-top: 30px;
 }

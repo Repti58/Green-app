@@ -4,7 +4,6 @@ import "./ChatList.css";
 function Chatlist(props) {
   const [chat, setChat] = useState("");
   const [inputValue, setInputValue] = useState("");
-  //   const [inputClassName, setInputClassName] = useState("inputNumber");
   const inputRef = useRef(null);
   const inputNumberHandler = (event) => {
     debugger;
@@ -17,6 +16,7 @@ function Chatlist(props) {
     }
   };
 
+  //   Подключение чата
   const activateChat = () => {
     debugger;
     console.log("inputValue", inputValue);
@@ -30,47 +30,26 @@ function Chatlist(props) {
       inputRef.current.classList.add("inputNumber_alert");
     }
   };
-  console.log("chats", chat);
-
-
-//   Временные функции!!!
-const tempButtonHandler1 = () => {
-    setInputValue("79110073963")
-}
-const tempButtonHandler2 = () => {
-    setInputValue("79956073963")
-}
-//   Временные функции!!!
-
+  //   console.log("chats", chat);
 
   return (
     <div className="chats">
-      <label  className="form-label">Добавить чат</label>
-<div className="input-group input-group-sm mb-4">
-  {/* <span className="input-group-text" >ApiTokenInstance</span> */}
-  <input  className="form-control"  aria-describedby="inputGroup-sizing-sm"   ref={inputRef}
-        placeholder={"79991234567"}
-        type="text"
-        value={inputValue}
-        onChange={inputNumberHandler}
-        onKeyUp={inputNumberHandler}/>
-</div>
-      {/* <input
-        ref={inputRef}
-        className="inputNumber"
-        placeholder={"79991234567"}
-        type="text"
-        value={inputValue}
-        onChange={inputNumberHandler}
-        onKeyUp={inputNumberHandler}
-      ></input> */}
-      <button onClick={activateChat} class="btn btn-dark btn-sm">Добавить чат</button>
-
-      {/* Временные кнопки */}
-{/* <button name="79110073963" onClick={tempButtonHandler1} class="btn btn-secondary btn-sm">79110073963</button>
-<button name="79956073963" onClick={tempButtonHandler2} class="btn btn-secondary btn-sm">79956073963</button> */}
-      {/* Временные кнопки */}
-
+      <label className="form-label">Добавить чат</label>
+      <div className="input-group input-group-sm mb-4">
+        <input
+          className="form-control custom-input"
+          aria-describedby="inputGroup-sizing-sm"
+          ref={inputRef}
+          placeholder={"79991234567"}
+          type="text"
+          value={inputValue}
+          onChange={inputNumberHandler}
+          onKeyUp={inputNumberHandler}
+        />
+      </div>
+      <button onClick={activateChat} class="btn btn-dark btn-sm">
+        Добавить чат
+      </button>
       {chat ? <div className="active-chat">Активный чат: {chat}</div> : null}
     </div>
   );

@@ -1,6 +1,4 @@
 import "./App.css";
-// import { useState, useEffect, useRef } from "react";
-import { Routes, Route } from "react-router-dom";
 import Authentication from "./Components/Authentication";
 import Dialog from "./Components/Dialog/Dialog";
 import Chatlist from "./Components/ChatList";
@@ -11,14 +9,18 @@ function App() {
   const [messageStack, setMessageStack] = useState([]);
   const [authData, setAuthData] = useState({});
   const [authStatus, setAuthStatus] = useState(false);
-  console.log("authData in APP", authData);
-  console.log("chatNumber", chatNumber);
+  // console.log("authData in APP", authData);
+  // console.log("chatNumber", chatNumber);
 
   return (
     <div className="container-fluid">
       <div className="row">
         <div className="col-4">
-          <div className={authStatus ? "auth-wrapper auth-wrapper_min" : "auth-wrapper"}>
+          <div
+            className={
+              authStatus ? "auth-wrapper auth-wrapper_min" : "auth-wrapper"
+            }
+          >
             <Authentication
               setAuthStatus={setAuthStatus}
               authStatus={authStatus}

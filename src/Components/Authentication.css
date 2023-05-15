@@ -1,23 +1,12 @@
-/* .mb-4 {
-  margin-bottom: 20px !important;
-} */
-
 .input-group-text {
   min-width: 130px;
 }
 
 .authInfo {
   display: flex;
-  /* background-color: #191c20;
-  min-height: 50px;
-  border-radius: 10px; */
   align-items: center;
-  /* padding: 2%; */
 }
 
 .authInfo__text {
   padding-left: 2%;
-  /* color: rgb(230, 229, 229); */
 }
-
-
