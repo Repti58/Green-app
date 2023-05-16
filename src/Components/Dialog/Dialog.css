@@ -43,12 +43,14 @@
   margin-left: 0;
   margin-right: auto;
   max-width: 60%;
+  border-radius: 10px;
 }
 
 .alert-success {
   margin-left: auto;
   margin-right: 0;
   max-width: 60%;
+  border-radius: 10px;
 }
 
 
