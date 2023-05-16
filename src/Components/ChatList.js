@@ -33,7 +33,7 @@ function Chatlist(props) {
 
   return (
     <div className="chats">
-      <label className="form-label">Добавить чат</label>
+      <label className="form-label">Введите номер телефона</label>
       <div className="input-group input-group-sm mb-4">
         <input
           className="form-control custom-input custom-input_auth"
