@@ -5,7 +5,7 @@ function Authentication(props) {
   const [idValue, setIdValue] = useState("");
   const [tokenValue, setTokenValue] = useState("");
 
-  console.log(idValue, tokenValue);
+  // console.log(idValue, tokenValue);
 
   const submitAuthHandler = () => {
     if (idValue || tokenValue) {
@@ -37,7 +37,7 @@ function Authentication(props) {
           <div className="input-group input-group-sm mb-4">
             <input
               type="text"
-              className="form-control custom-input"
+              className="form-control custom-input custom-input_auth"
               aria-describedby="inputGroup-sizing-sm"
               name="IdInstance"
               value={idValue}
@@ -49,7 +49,7 @@ function Authentication(props) {
           <div className="input-group input-group-sm mb-4">
             <input
               type="text"
-              className="form-control custom-input"
+              className="form-control custom-input custom-input_auth"
               aria-describedby="inputGroup-sizing-sm"
               value={tokenValue}
               name="ApiTokenInstance"
@@ -59,7 +59,7 @@ function Authentication(props) {
 
           <button
             type="button"
-            class="btn btn-dark btn-sm"
+            className="btn btn-dark btn-sm"
             onClick={submitAuthHandler}
           >
             Войти
@@ -70,7 +70,7 @@ function Authentication(props) {
           <div>
             <button
               name="exitButton"
-              class="btn btn-dark btn-sm"
+              className="btn btn-dark btn-sm"
               onClick={exitButtonHandler}
             >
               Выйти

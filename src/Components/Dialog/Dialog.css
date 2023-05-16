@@ -6,6 +6,10 @@
   justify-content: end;
   color: white;
   padding: 15px;
+  background-image: url(./logo.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50%;
 }
 
 .dialog-wrapper {
@@ -13,6 +17,7 @@
   padding-right: 10px;
   overflow-y: scroll;
   margin-bottom: 15px;
+  
 }
 
 .input-wrapper {
@@ -45,6 +50,7 @@
   margin-right: 0;
   max-width: 60%;
 }
+
 
 ::-webkit-scrollbar {
   width: 10px;

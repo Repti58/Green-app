@@ -72,6 +72,13 @@
   border: none;
 }
 
+.custom-input_auth:focus {
+  color: #4c9367;
+}
+.custom-input_auth {
+  color: #5da177;
+}
+
 .App-link {
   color: #61dafb;
 }

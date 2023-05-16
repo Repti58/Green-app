@@ -16,9 +16,8 @@ function ChatDialog(props) {
     <div className="dialog-wrapper" ref={dialogRef}>
       {props.messageStack.map((message) => {
         return (
-          <div className="message-wrapper">
+          <div className="message-wrapper" key={message.receiptId}>
             <div
-              key={message.receiptId}
               className={
                 message.messageType === "incoming-message"
                   ? "alert alert-warning"

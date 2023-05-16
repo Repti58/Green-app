@@ -6,10 +6,9 @@ function Chatlist(props) {
   const [inputValue, setInputValue] = useState("");
   const inputRef = useRef(null);
   const inputNumberHandler = (event) => {
-    debugger;
     if (event.key == "Enter") {
       activateChat();
-      console.log("inputValue", inputValue);
+      // console.log("inputValue", inputValue);
     } else {
       const value = event.target.value.replace(/[^0-9]/g, "");
       setInputValue(value);
@@ -19,7 +18,7 @@ function Chatlist(props) {
   //   Подключение чата
   const activateChat = () => {
     debugger;
-    console.log("inputValue", inputValue);
+    // console.log("inputValue", inputValue);
     if (inputValue) {
       setChat(inputValue);
       props.setChatNumber(inputValue);
@@ -37,7 +36,7 @@ function Chatlist(props) {
       <label className="form-label">Добавить чат</label>
       <div className="input-group input-group-sm mb-4">
         <input
-          className="form-control custom-input"
+          className="form-control custom-input custom-input_auth"
           aria-describedby="inputGroup-sizing-sm"
           ref={inputRef}
           placeholder={"79991234567"}
@@ -47,7 +46,7 @@ function Chatlist(props) {
           onKeyUp={inputNumberHandler}
         />
       </div>
-      <button onClick={activateChat} class="btn btn-dark btn-sm">
+      <button onClick={activateChat} className="btn btn-dark btn-sm">
         Добавить чат
       </button>
       {chat ? <div className="active-chat">Активный чат: {chat}</div> : null}
