@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Authentication.css";
+// import "./Authentication.css";
 
 function Authentication(props) {
   const [idValue, setIdValue] = useState("");

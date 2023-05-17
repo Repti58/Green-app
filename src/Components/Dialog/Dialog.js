@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "./Dialog.css";
+// import "./Dialog.css";
 import ChatDialog from "./ChatDialog.js";
 
 function Dialog({
@@ -117,7 +117,7 @@ function Dialog({
   // console.log("messageStack", messageStack);
 
   return (
-    <div className="Dialog-container">
+    <div className="dialog-container">
       {authStatus && chatNumber ? (
         <div>
           <ChatDialog messageStack={messageStack}></ChatDialog>

@@ -1,0 +1,133 @@
+.auth-wrapper {
+  background-color: #191c20;
+  border-radius: 10px;
+  padding: 2%;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  height: auto;
+  max-height: 350px;
+  min-height: 250px;
+  margin-bottom: 50px;
+}
+
+.auth-wrapper_min {
+  max-height: 150px;
+  min-height: 40px;
+}
+
+.row {
+  background-color: #282c34;
+}
+
+.col-4 {
+  background-color: #1f2329;
+  padding-top: 15px;
+  color: #e2e2e2;
+  border-right: rgb(57, 57, 57) solid 1px;
+}
+
+.btn {
+  color: rgb(160, 160, 160);
+}
+
+.custom-input {
+  background-color: #252930;
+  border: #616369 solid 1px;
+  color: #e2e2e2;
+}
+.custom-input:focus {
+  background-color: #252930;
+  color: #e2e2e2;
+  border: none;
+}
+
+.custom-input_auth:focus {
+  color: #4c9367;
+}
+.custom-input_auth {
+  color: #5da177;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.dialog-container {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  color: white;
+  padding: 15px;
+  background-image: url(../PNG/logo.png);
+  background-repeat: no-repeat; 
+  background-position: center center;
+  background-size: 50%;
+}
+
+.dialog-wrapper {
+  max-height: 75vh;
+  padding-right: 10px;
+  overflow-y: scroll;
+  margin-bottom: 15px;
+  
+}
+
+.input-wrapper {
+  border-radius: 10px;
+  background-color: #1f2329;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+}
+
+.mb-3 {
+  margin-bottom: 0 !important;
+}
+
+.message-wrapper {
+  display: flex;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+.alert-warning {
+  margin-left: 0;
+  margin-right: auto;
+  max-width: 60%;
+  border-radius: 10px;
+}
+
+.alert-success {
+  margin-left: auto;
+  margin-right: 0;
+  max-width: 60%;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3d4045;
+  border-radius: 5px;
+}
+
+.inputNumber_alert {
+  border: solid 1px red;
+}
+
+.chats {
+  background-color: #191c20;
+  border-radius: 10px;
+  padding: 2%;
+}
+
+.active-chat {
+  margin-top: 30px;
+  color: #5da177;
+}

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./CSS/style.css";
 import Authentication from "./Components/Authentication";
 import Dialog from "./Components/Dialog/Dialog";
 import Chatlist from "./Components/ChatList";
