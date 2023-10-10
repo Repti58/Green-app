@@ -17,7 +17,6 @@ function Chatlist(props) {
 
   //   Подключение чата
   const activateChat = () => {
-    debugger;
     // console.log("inputValue", inputValue);
     if (inputValue) {
       setChat(inputValue);
